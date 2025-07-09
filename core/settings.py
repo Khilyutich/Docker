@@ -12,15 +12,21 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from pathlib import Path
 
+import os
+
+from dotenv import load_dotenv
+load_dotenv()
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-7%(ny*n)y74)qhDu3u6+ap3dyzh_wn10jj=f1(p__vlybx!glt9h'
+SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -74,8 +80,12 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.getenv('POSTGRES_DB'),        # 'django_db'
+        'USER': os.getenv('POSTGRES_USER'),      # 'django_user'
+        'PASSWORD': os.getenv('POSTGRES_PASSWORD'),  # 'supersecret'
+        'HOST': os.getenv('POSTGRES_HOST'),      # 'db' (если в Docker) или 'localhost'
+        'PORT': os.getenv('POSTGRES_PORT'),      # '5432'
     }
 }
 
