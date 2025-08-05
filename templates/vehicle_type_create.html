@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Создание типа техники</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
+    <style>
+        body {
+            padding-top: 56px;
+            background-color: #f8f9fa;
+        }
+        .navbar {
+            padding-left: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .main-content {
+            padding: 20px;
+            min-height: calc(100vh - 56px);
+        }
+        .form-container {
+            width: 100%;
+            max-width: 100%;
+        }
+        .form-input-full {
+            width: 100%;
+            max-width: 100%;
+        }
+        .form-label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container-fluid">
+            <div style="display: flex; gap: 40px;">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        Техника
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" href="vehicle_type_create.html">Создать тип</a></li>
+                        <li><a class="dropdown-item" href="#">Список типов</a></li>
+                        <li><a class="dropdown-item" href="vehicle_create.html">Создать технику</a></li>
+                        <li><a class="dropdown-item" href="vehicle_list_delete.html">Список техники</a></li>
+                    </ul>
+                </div>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        Запчасти
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" href="#">Создать тип</a></li>
+                        <li><a class="dropdown-item" href="#">Список типов</a></li>
+                        <li><a class="dropdown-item" href="#">Создать запчасть</a></li>
+                        <li><a class="dropdown-item" href="#">Список запчастей</a></li>
+                    </ul>
+                </div>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        Атрибуты
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" href="#">Создать атрибут</a></li>
+                        <li><a class="dropdown-item" href="#">Список атрибутов</a></li>
+                    </ul>
+                </div>
+            </div>   
+        </div>
+    </nav>
+
+    <div class="container-fluid main-content">
+        <h1 class="mb-4">Создание типа техники</h1>
+        
+        <div class="form-container">
+            <form>
+                <div class="mb-4">
+                    <label for="typeName" class="form-label">Название типа</label>
+                    <input type="text" class="form-control form-input-full" id="typeName" placeholder="Например, Трактор">
+                </div>
+                <button type="submit" class="btn btn-primary">Сохранить</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

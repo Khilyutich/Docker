@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Информация о запчасти</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+    <style>
+        body {
+            padding-top: 56px;
+            background-color: #f8f9fa;
+        }
+        .navbar {
+            padding-left: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .main-content {
+            padding: 20px;
+            background-color: white;
+        }
+        .info-table {
+            width: 100%;
+            margin-bottom: 30px;
+        }
+        .info-table td {
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+            vertical-align: top;
+        }
+        .info-table td:first-child {
+            font-weight: bold;
+            width: 30%;
+        }
+        .section-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin: 30px 0 15px 0;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #eee;
+        }
+        .attribute-table {
+            width: 100%;
+            margin-bottom: 30px;
+        }
+        .attribute-table th {
+            text-align: left;
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .attribute-table td {
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .photos-container {
+            margin-bottom: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .photo-preview {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .change-log {
+            margin-bottom: 30px;
+        }
+        .change-item {
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        .change-date {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 8px 15px;
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            text-decoration: none;
+            color: #333;
+        }
+        .back-link:hover {
+            background-color: #e9ecef;
+        }
+        .deleted-status {
+            color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container-fluid">
+            <div style="display: flex; gap: 40px;">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        Техника
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" href="vehicle_type_create.html">Создать тип</a></li>
+                        <li><a class="dropdown-item" href="vehicle_type_list_delete.html">Список типов</a></li>
+                        <li><a class="dropdown-item" href="vehicle_create.html">Создать технику</a></li>
+                        <li><a class="dropdown-item" href="vehicle_list_delete.html">Список техники</a></li>
+                    </ul>
+                </div>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        Запчасти
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" href="spare_part_type_create.html">Создать тип</a></li>
+                        <li><a class="dropdown-item" href="spare_part_type_list_delete.html">Список типов</a></li>
+                        <li><a class="dropdown-item" href="spare_part_create.html">Создать запчасть</a></li>
+                        <li><a class="dropdown-item" href="spare_part_list_delete.html">Список запчастей</a></li>
+                    </ul>
+                </div>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        Атрибуты
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" href="attribute_create.html">Создать атрибут</a></li>
+                        <li><a class="dropdown-item" href="attribute_list_delete.html">Список атрибутов</a></li>
+                    </ul>
+                </div>
+            </div>   
+        </div>
+    </nav>
+
+    <div class="container-fluid main-content">
+        <h1 class="mb-4">Информация о запчасти</h1>
+        
+        <table class="info-table">
+            <tr>
+                <td>Тип запчасти</td>
+                <td>Фильтр масляный</td>
+            </tr>
+            <tr>
+                <td>Техника</td>
+                <td>УРАЛ А1238С</td>
+            </tr>
+            <tr>
+                <td>Статус</td>
+                <td>Установлено</td>
+            </tr>
+            <tr>
+                <td>Создано</td>
+                <td>2025-07-18 13:05</td>
+            </tr>
+            <tr>
+                <td>Обновлено</td>
+                <td>2025-07-19 14:20</td>
+            </tr>
+            <tr>
+                <td>Удалено</td>
+                <td class="deleted-status"><i class="fas fa-times"></i></td>
+            </tr>
+        </table>
+        
+        <div class="section-title">Атрибуты</div>
+        <table class="attribute-table">
+            <tr>
+                <td>Диаметр (мм)</td>
+                <td>50</td>
+            </tr>
+            <tr>
+                <td>Вес (кг)</td>
+                <td>3.2</td>
+            </tr>
+        </table>
+        
+        <div class="section-title">Фотографии</div>
+        <div class="photos-container">
+            <img src="https://via.placeholder.com/150" alt="Фото запчасти" class="photo-preview">
+            <img src="https://via.placeholder.com/150" alt="Фото запчасти" class="photo-preview">
+            <img src="https://via.placeholder.com/150" alt="Фото запчасти" class="photo-preview">
+        </div>
+        
+        <div class="section-title">Лог изменений</div>
+        <div class="change-log">
+            <div class="change-item">
+                <span class="change-date">2025-07-19 14:20</span>
+                <span>Изменено значение атрибута "Вес" с 3.0 на 3.2</span>
+            </div>
+            <div class="change-item">
+                <span class="change-date">2025-07-18 13:05</span>
+                <span>Создана запчасть, добавлены фото</span>
+            </div>
+        </div>
+        
+        <a href="spare_part_list_delete.html" class="back-link">
+            <i class="fas fa-arrow-left"></i> Назад к списку
+        </a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

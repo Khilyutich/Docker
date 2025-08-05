@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Создание техники</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
+    <style>
+        /* Убираем стрелки у числового инпута */
+        input[type="number"]::-webkit-outer-spin-button,
+        input[type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        input[type="number"] {
+            -moz-appearance: textfield;
+        }
+        /* Стили для календаря */
+        .flatpickr-input {
+            background-color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container-fluid">
+            <div style="display: flex; gap: 40px;">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        Техника
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" href="#">Создать тип</a></li>
+                        <li><a class="dropdown-item" href="#">Список типов</a></li>
+                        <li><a class="dropdown-item" href="vehicle_create.html">Создать технику</a></li>
+                        <li><a class="dropdown-item" href="vehicle_list_delete.html">Список техники</a></li>
+                    </ul>
+                </div>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        Запчасти
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" href="#">Создать тип</a></li>
+                        <li><a class="dropdown-item" href="#">Список типов</a></li>
+                        <li><a class="dropdown-item" href="#">Создать запчасть</a></li>
+                        <li><a class="dropdown-item" href="#">Список запчастей</a></li>
+                    </ul>
+                </div>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        Атрибуты
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" href="#">Создать атрибут</a></li>
+                        <li><a class="dropdown-item" href="#">Список атрибутов</a></li>
+                    </ul>
+                </div>
+            </div>   
+        </div>
+    </nav>
+
+<div class="container mt-5 pt-4">
+    <h1 class="mb-4">Создание техники</h1>
+    
+    <form>
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="regNumber" class="form-label">Регистрационный номер</label>
+                <input type="text" class="form-control" id="regNumber" value="A123BC">
+            </div>
+        </div>
+        
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="brand" class="form-label">Бренд</label>
+                <input type="text" class="form-control" id="brand" value="УРАЛ">
+            </div>
+        </div>
+        
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="purchaseDate" class="form-label">Дата покупки</label>
+                <input type="text" class="form-control flatpickr-input" id="purchaseDate" placeholder="Дд.мм.гггг" data-input>
+            </div>
+        </div>
+        
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="vehicleType" class="form-label">Тип техники</label>
+                <select class="form-select" id="vehicleType">
+                    <option selected>Выберите тип...</option>
+                    <option value="1">Грузовик</option>
+                    <option value="2">Экскаватор</option>
+                    <option value="3">Бульдозер</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="mileage" class="form-label">Пробег (км)</label>
+                <input type="number" class="form-control" id="mileage" value="0" pattern="[0-9]*">
+            </div>
+        </div>
+        
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="status" class="form-label">Статус эксплуатации</label>
+                <select class="form-select" id="status">
+                    <option selected>В работе</option>
+                    <option value="1">На ремонте</option>
+                    <option value="2">Списана</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <label class="form-label">Фотографии</label>
+                <div class="d-flex flex-column gap-3">
+                    <div class="border p-3">
+                        <div class="d-flex align-items-center gap-3">
+                            <input type="file" class="d-none" id="file1">
+                            <label for="file1" class="btn btn-outline-secondary mb-0">Выберите файл</label>
+                            <span class="text-muted">Файл не выбран</span>
+                        </div>
+                    </div>
+                    <div class="border p-3">
+                        <div class="d-flex align-items-center gap-3">
+                            <input type="file" class="d-none" id="file2">
+                            <label for="file2" class="btn btn-outline-secondary mb-0">Выберите файл</label>
+                            <span class="text-muted">Файл не выбран</span>
+                        </div>
+                    </div>
+                    <div class="border p-3">
+                        <div class="d-flex align-items-center gap-3">
+                            <input type="file" class="d-none" id="file3">
+                            <label for="file3" class="btn btn-outline-secondary mb-0">Выберите файл</label>
+                            <span class="text-muted">Файл не выбран</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-12">
+                <button type="submit" class="btn btn-primary">Сохранить</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ru.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Инициализация календаря
+        document.addEventListener('DOMContentLoaded', function() {
+            flatpickr("#purchaseDate", {
+                dateFormat: "d.m.Y",
+                locale: "ru",
+                allowInput: true,
+                clickOpens: true,
+                onOpen: function() {
+                    document.getElementById('purchaseDate').blur();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
