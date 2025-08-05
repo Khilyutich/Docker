@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Создание запчасти</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
+    <style>
+        body {
+            padding-top: 56px;
+            background-color: #f8f9fa;
+        }
+        .navbar {
+            padding-left: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .main-content {
+            padding: 20px;
+            background-color: white;
+        }
+        .section-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin: 25px 0 10px 0;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #eee;
+        }
+        .form-select {
+            width: 100%;
+            margin-bottom: 15px;
+        }
+        .attribute-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .attribute-checkbox {
+            margin-right: 10px;
+        }
+        .attribute-name {
+            flex: 0 0 150px;
+            margin-right: 15px;
+        }
+        .attribute-value {
+            flex-grow: 1;
+        }
+        .attribute-value input {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .file-upload {
+            margin-bottom: 15px;
+        }
+        .save-btn {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container-fluid">
+            <div style="display: flex; gap: 40px;">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        Техника
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" href="vehicle_type_create.html">Создать тип</a></li>
+                        <li><a class="dropdown-item" href="vehicle_type_list_delete.html">Список типов</a></li>
+                        <li><a class="dropdown-item" href="vehicle_create.html">Создать технику</a></li>
+                        <li><a class="dropdown-item" href="vehicle_list_delete.html">Список техники</a></li>
+                    </ul>
+                </div>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        Запчасти
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" href="spare_part_create.html">Создать запчасть</a></li>
+                        <li><a class="dropdown-item" href="spare_part_list.html">Список запчастей</a></li>
+                    </ul>
+                </div>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        Атрибуты
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" href="#">Создать атрибут</a></li>
+                        <li><a class="dropdown-item" href="#">Список атрибутов</a></li>
+                    </ul>
+                </div>
+            </div>   
+        </div>
+    </nav>
+
+    <div class="container-fluid main-content">
+        <h1 class="mb-4">Создание запчасти</h1>
+        
+        <div class="section-title">Тип запчасти</div>
+        <select class="form-select">
+            <option selected disabled>Выберите тип...</option>
+            <option>Фильтр масляный</option>
+            <option>Тормозные колодки</option>
+            <option>Свечи зажигания</option>
+        </select>
+        
+        <div class="section-title">Закрепить за техникой</div>
+        <select class="form-select">
+            <option selected disabled>Выберите технику...</option>
+            <option>УРАЛ (A123BC)</option>
+            <option>КАМАЗ (B456DE)</option>
+            <option>МАЗ (C789FG)</option>
+        </select>
+        
+        <div class="section-title">Статус</div>
+        <select class="form-select">
+            <option selected>Установлено</option>
+            <option>На складе</option>
+            <option>Списано</option>
+        </select>
+        
+        <div class="section-title">Атрибуты</div>
+        <div class="attribute-item">
+            <input type="checkbox" class="attribute-checkbox" id="attr1">
+            <div class="attribute-name">Название</div>
+            <div class="attribute-value">
+                <input type="text" placeholder="Значение">
+            </div>
+        </div>
+        <div class="attribute-item">
+            <input type="checkbox" class="attribute-checkbox" id="attr2">
+            <div class="attribute-name">Диаметр (мм)</div>
+            <div class="attribute-value">
+                <input type="text" placeholder="Например: 50">
+            </div>
+        </div>
+        <div class="attribute-item">
+            <input type="checkbox" class="attribute-checkbox" id="attr3">
+            <div class="attribute-name">Вес (кг)</div>
+            <div class="attribute-value">
+                <input type="text" placeholder="Например: 3.2">
+            </div>
+        </div>
+        
+        <div class="section-title">Фотографии</div>
+        <div class="file-upload">
+            <input type="file" class="form-control">
+            <div class="form-text">Файл не выбран</div>
+        </div>
+        <div class="file-upload">
+            <input type="file" class="form-control">
+            <div class="form-text">Файл не выбран</div>
+        </div>
+        <div class="file-upload">
+            <input type="file" class="form-control">
+            <div class="form-text">Файл не выбран</div>
+        </div>
+        
+        <button type="submit" class="btn btn-primary save-btn">Сохранить</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Обработка чекбоксов атрибутов
+        document.addEventListener('DOMContentLoaded', function() {
+            const checkboxes = document.querySelectorAll('.attribute-checkbox');
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    const input = this.closest('.attribute-item').querySelector('.attribute-value input');
+                    input.disabled = !this.checked;
+                    if (!this.checked) {
+                        input.value = '';
+                    }
+                });
+                
+                // Инициализация состояния
+                const input = checkbox.closest('.attribute-item').querySelector('.attribute-value input');
+                input.disabled = !checkbox.checked;
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Редактирование техники</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
+    <style>
+        body {
+            padding-top: 56px;
+            background-color: #f8f9fa;
+        }
+        .navbar {
+            padding-left: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .main-content {
+            padding: 20px;
+            background-color: white;
+        }
+        .section-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin: 25px 0 10px 0;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #eee;
+        }
+        .editable-field {
+            font-size: 1rem;
+            padding: 8px 0;
+            border: none;
+            border-bottom: 1px solid #ddd;
+            width: 100%;
+            margin-bottom: 5px;
+        }
+        .uneditable-field {
+            font-size: 1rem;
+            padding: 8px 0;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        .deleted-status {
+            color: #dc3545;
+            font-size: 1.2rem;
+        }
+        .save-btn {
+            margin-top: 30px;
+        }
+        .form-select {
+            border: none;
+            border-bottom: 1px solid #ddd;
+            border-radius: 0;
+            padding-left: 0;
+        }
+        .file-upload-container {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .file-upload-label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .photo-preview {
+            max-width: 100px;
+            max-height: 100px;
+            margin-top: 10px;
+            display: block;
+        }
+        .form-check-input {
+            margin-left: 0;
+        }
+        .file-input-wrapper {
+            flex-grow: 1;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container-fluid">
+            <div style="display: flex; gap: 40px;">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        Техника
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" href="vehicle_type_create.html">Создать тип</a></li>
+                        <li><a class="dropdown-item" href="vehicle_type_list_delete.html">Список типов</a></li>
+                        <li><a class="dropdown-item" href="vehicle_create.html">Создать технику</a></li>
+                        <li><a class="dropdown-item" href="vehicle_list_delete.html">Список техники</a></li>
+                    </ul>
+                </div>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        Запчасти
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" href="#">Создать тип</a></li>
+                        <li><a class="dropdown-item" href="#">Список типов</a></li>
+                        <li><a class="dropdown-item" href="#">Создать запчасть</a></li>
+                        <li><a class="dropdown-item" href="#">Список запчастей</a></li>
+                    </ul>
+                </div>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        Атрибуты
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" href="#">Создать атрибут</a></li>
+                        <li><a class="dropdown-item" href="#">Список атрибутов</a></li>
+                    </ul>
+                </div>
+            </div>   
+        </div>
+    </nav>
+
+    <div class="container-fluid main-content">
+        <h1 class="mb-4">Редактирование техники</h1>
+        
+        <div class="section-title">Регистрационный номер</div>
+        <input type="text" class="editable-field" value="A123BC">
+        
+        <div class="section-title">Брэнд</div>
+        <input type="text" class="editable-field" value="УРАЛ">
+        
+        <div class="section-title">Дата покупки</div>
+        <input type="text" class="editable-field" value="10.05.2023">
+        
+        <div class="section-title">Тип техники</div>
+        <select class="form-select">
+            <option selected>Трактор</option>
+            <option>Грузовик</option>
+            <option>Экскаватор</option>
+        </select>
+        
+        <div class="section-title">Пробег (км)</div>
+        <input type="text" class="editable-field" value="1500,0">
+        
+        <div class="section-title">Статус эксплуатации</div>
+        <select class="form-select">
+            <option selected>В работе</option>
+            <option>На ремонте</option>
+            <option>Списана</option>
+        </select>
+        
+        <div class="section-title">Текущие фотографии</div>
+        <div class="file-upload-container">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="photoCheck1" checked>
+            </div>
+            <div class="file-input-wrapper">
+                <input type="file" class="form-control" id="photoInput1">
+                <div class="form-text">Файл не выбран</div>
+                <!-- Пример превью существующей фотографии -->
+                <img src="assets/img/vehicle-placeholder.jpg" alt="Фото техники" class="photo-preview" id="photoPreview1">
+            </div>
+        </div>
+        
+        <div class="file-upload-container">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="photoCheck2">
+            </div>
+            <div class="file-input-wrapper">
+                <input type="file" class="form-control" id="photoInput2">
+                <div class="form-text">Файл не выбран</div>
+                <img src="" alt="Фото техники" class="photo-preview" id="photoPreview2" style="display: none;">
+            </div>
+        </div>
+        
+        <div class="file-upload-container">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="photoCheck3">
+            </div>
+            <div class="file-input-wrapper">
+                <input type="file" class="form-control" id="photoInput3">
+                <div class="form-text">Файл не выбран</div>
+                <img src="" alt="Фото техники" class="photo-preview" id="photoPreview3" style="display: none;">
+            </div>
+        </div>
+        
+        <button type="submit" class="btn btn-primary save-btn" onclick="window.location.href='vehicle_read.html'">Сохранить изменения</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Обработка загрузки фотографий и отображения превью
+        document.addEventListener('DOMContentLoaded', function() {
+            // Для каждого поля загрузки фото
+            [1, 2, 3].forEach(num => {
+                const input = document.getElementById(`photoInput${num}`);
+                const preview = document.getElementById(`photoPreview${num}`);
+                const checkbox = document.getElementById(`photoCheck${num}`);
+                
+                // Если есть существующее фото, показываем его
+                if (preview.src && preview.src.includes('vehicle-placeholder.jpg')) {
+                    checkbox.checked = true;
+                } else {
+                    checkbox.checked = false;
+                }
+                
+                // Обработка выбора нового файла
+                input.addEventListener('change', function(e) {
+                    if (e.target.files && e.target.files[0]) {
+                        const reader = new FileReader();
+                        reader.onload = function(event) {
+                            preview.src = event.target.result;
+                            preview.style.display = 'block';
+                            checkbox.checked = true;
+                        }
+                        reader.readAsDataURL(e.target.files[0]);
+                    }
+                });
+                
+                // Обработка изменения состояния чекбокса
+                checkbox.addEventListener('change', function() {
+                    if (!this.checked) {
+                        preview.style.display = 'none';
+                        input.value = '';
+                    } else if (preview.src && !preview.src.includes('vehicle-placeholder.jpg')) {
+                        preview.style.display = 'block';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
